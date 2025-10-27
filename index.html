@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqverin - Experience Pure Luxury</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        /* Custom Styles for elegance */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom soft shadow for gallery */
+        .shadow-soft {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Custom pastel colors */
+        .bg-pastel-blue {
+            background-color: #F0F9FF; /* Very light blue */
+        }
+        .text-accent {
+            color: #0369A1; /* A soft, deep blue */
+        }
+        .bg-accent {
+            background-color: #0369A1;
+        }
+        .hover\:bg-accent-hover:hover {
+            background-color: #0284C7;
+        }
+        
+        /* Intro Animation Classes */
+        .hero-text-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .hero-image-animate {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .hero-loaded .hero-text-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-loaded .hero-image-animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Staggered animation delay */
+        .hero-loaded .hero-text-animate:nth-child(1) { transition-delay: 0.2s; }
+        .hero-loaded .hero-text-animate:nth-child(2) { transition-delay: 0.4s; }
+        .hero-loaded .hero-text-animate:nth-child(3) { transition-delay: 0.6s; }
+        .hero-loaded .hero-image-animate { transition-delay: 0.3s; }
+        
+        /* Testimonial slider */
+        #testimonial-slider {
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg shadow-sm z-50 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="#home" class="text-3xl font-extrabold text-accent">
+                Aqverin
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="font-medium text-gray-600 hover:text-accent transition-colors">Home</a>
+                <a href="#benefits" class="font-medium text-gray-600 hover:text-accent transition-colors">Benefits</a>
+                <a href="#about" class="font-medium text-gray-600 hover:text-accent transition-colors">About</a>
+                <a href="#gallery" class="font-medium text-gray-600 hover:text-accent transition-colors">Gallery</a>
+                <a href="#testimonials" class="font-medium text-gray-600 hover:text-accent transition-colors">Testimonials</a>
+                <a href="#contact" class="font-medium text-gray-600 hover:text-accent transition-colors">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-700 hover:text-accent">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#home" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">Home</a>
+            <a href="#benefits" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">Benefits</a>
+            <a href="#about" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">About</a>
+            <a href="#gallery" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">Gallery</a>
+            <a href="#testimonials" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">Testimonials</a>
+            <a href="#contact" class="block py-3 px-4 text-gray-600 hover:bg-pastel-blue hover:text-accent">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen w-full flex items-center justify-center pt-20 overflow-hidden bg-pastel-blue">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div id="hero-content" class_="space-y-6">
+                    <h1 class="hero-text-animate text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
+                        Experience<br>Pure Luxury
+                    </h1>
+                    <p class="hero-text-animate text-lg md:text-xl text-gray-600 max-w-md">
+                        Discover Aqverin, where pristine hydration meets timeless design. Our bottles are crafted for those who demand purity, quality, and style.
+                    </p>
+                    <a href="#about" class="hero-text-animate inline-block bg-accent text-white font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:bg-accent-hover transition-all duration-300 transform hover:scale-105">
+                        Discover More
+                    </a>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="hero-image-animate relative flex justify-center items-center">
+                    <!-- Placeholder for the bottle image -->
+                    <!-- A clean, high-res image of the bottle should go here -->
+                    <img src="generated-image-removebg-preview.png" 
+                         alt="Aqverin Luxury Water Bottle" 
+                         class="max-h-[-1000vh] w-auto object-contain drop-shadow-2xl"
+                         onerror="this.src='https://placehold.co/400x600/F0F9FF/3B82F6?text=Aqverin+Bottle'; this.onerror=null;">
+                         
+                    <!-- FSSAI Logo -->
+                    <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-white/80 p-2 rounded-lg shadow-soft backdrop-blur-sm">
+                        <!-- Placeholder for the FSSAI logo -->
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Aqverin Difference</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
+                    More than just a bottle, it's a commitment to your well-being and the planet.
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
+                    <!-- Benefit 1 -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="bg-pastel-blue p-4 rounded-full mb-4">
+                            <i data-lucide="droplet" class="w-10 h-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">Pure & Safe Water</h3>
+                        <p class="text-gray-600 text-sm mt-1">Advanced filtration ensures every sip is crisp and clean.</p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="bg-pastel-blue p-4 rounded-full mb-4">
+                            <i data-lucide="shield-off" class="w-10 h-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">100% BPA Free</h3>
+                        <p class="text-gray-600 text-sm mt-1">Crafted from premium, non-toxic materials for your peace of mind.</p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="bg-pastel-blue p-4 rounded-full mb-4">
+                            <i data-lucide="snowflake" class="w-10 h-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">Long-Lasting Chill</h3>
+                        <p class="text-gray-600 text-sm mt-1">Double-wall insulation keeps your water cold for up to 24 hours.</p>
+                    </div>
+                    <!-- Benefit 4 -->
+                    <div class="flex flex-col items-center p-4">
+                        <div class="bg-pastel-blue p-4 rounded-full mb-4">
+                            <i data-lucide="leaf" class="w-10 h-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">Eco-Friendly</h3>
+                        <p class="text-gray-600 text-sm mt-1">A stylish, reusable alternative to single-use plastic.</p>
+                    </div>
+                    <!-- Benefit 5 -->
+                    <div class="flex flex-col items-center p-4 col-span-2 md:col-span-1">
+                        <div class="bg-pastel-blue p-4 rounded-full mb-4">
+                            <i data-lucide="gem" class="w-10 h-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">Stylish Design</h3>
+                        <p class="text-gray-600 text-sm mt-1">An elegant accessory that complements your lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-24 bg-pastel-blue">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                <!-- About Image -->
+                <div class="rounded-lg overflow-hidden shadow-soft">
+                    <img src="generated-image (4).png" 
+                         alt="Lifestyle with Aqverin bottle" 
+                         class="w-full h-auto object-cover"
+                         onerror="this.src='https://placehold.co/600x450/E0F2FE/0284C7?text=Aqverin+Quality'; this.onerror=null;">
+                </div>
+                
+                <!-- About Text -->
+                <div class="space-y-6">
+                    <span class="text-sm font-semibold text-accent uppercase tracking-wider">Our Commitment</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Purity in Every Detail</h2>
+                    <p class="text-lg text-gray-600">
+                        At Aqverin, we believe true luxury is found in uncompromising quality. From the source of our water to the sustainable, BPA-free materials of our bottles, every element is chosen with intention.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Our commitment extends beyond the product to the planet. We champion sustainability, ensuring that your choice for pure hydration is also a choice for a healthier Earth. Experience the pinnacle of quality, safety, and design.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-16">A Closer Look</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Gallery Image 1 -->
+                    <div class="group overflow-hidden rounded-xl shadow-soft">
+                        <img src="generated-image (1).png" 
+                             alt="Aqverin bottle cap detail" 
+                             class="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                             onerror="this.src='https://placehold.co/600x400/F0F9FF/3B82F6?text=Bottle+Detail+1'; this.onerror=null;">
+                    </div>
+                    <!-- Gallery Image 2 -->
+                    <div class="group overflow-hidden rounded-xl shadow-soft">
+                        <img src="generated-image (2).png" 
+                             alt="Aqverin bottle held in hand" 
+                             class="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                             onerror="this.src='https://placehold.co/600x400/E0F2FE/0284C7?text=Bottle+in+Hand'; this.onerror=null;">
+                    </div>
+                    <!-- Gallery Image 3 -->
+                    <div class="group overflow-hidden rounded-xl shadow-soft">
+                        <img src="generated-image (3).png" 
+                             alt="Aqverin bottle on a desk" 
+                             class="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                             onerror="this.src='https.placehold.co/600x400/DBEAFE/1D4ED8?text=Bottle+Lifestyle'; this.onerror=null;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-pastel-blue">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">From Our Patrons</h2>
+                <div class="relative overflow-hidden w-full">
+                    <!-- Testimonial Slider -->
+                    <div id="testimonial-slider" class="flex">
+                        <!-- Slide 1 -->
+                        <div class="min-w-full flex-shrink-0 px-4">
+                            <p class="text-xl md:text-2xl italic text-gray-700">
+                                "The Aqverin bottle is simply stunning. It's the only bottle I've found that feels both durable and genuinely luxurious. And the water stays cold all day!"
+                            </p>
+                            <h4 class="font-semibold text-lg text-gray-900 mt-6">Aarav Mehta</h4>
+                            <span class="text-gray-600">Premium Customer</span>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="min-w-full flex-shrink-0 px-4">
+                            <p class="text-xl md:text-2xl italic text-gray-700">
+                                "I'm obsessed with the minimal design. It's my go-to for yoga and client meetings. Knowing it's BPA-free and FSSAI certified gives me complete peace of mind."
+                            </p>
+                            <h4 class="font-semibold text-lg text-gray-900 mt-6">Priya Sharma</h4>
+                            <span class="text-gray-600">Design Consultant</span>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="min-w-full flex-shrink-0 px-4">
+                            <p class="text-xl md:text-2xl italic text-gray-700">
+                                "Finally, a reusable bottle that doesn't compromise on style. The quality is exceptional. It's a sustainable choice that feels like an upgrade, not a compromise."
+                            </p>
+                            <h4 class="font-semibold text-lg text-gray-900 mt-6">Rohan Gupta</h4>
+                            <span class="text-gray-600">Entrepreneur</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <button id="prev-slide" class="absolute top-1/2 left-0 -translate-y-1/2 text-gray-500 hover:text-accent p-2">
+                        <i data-lucide="chevron-left" class="w-8 h-8"></i>
+                    </button>
+                    <button id="next-slide" class="absolute top-1/2 right-0 -translate-y-1/2 text-gray-500 hover:text-accent p-2">
+                        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Certified Excellence</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                    We adhere to the highest standards of safety and quality, so you can hydrate with confidence.
+                </p>
+                <div class="flex justify-center items-center gap-8 md:gap-12 flex-wrap">
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/nJm2K9B.png" 
+                             alt="FSSAI Certified Logo" 
+                             class="h-28 w-28 mx-auto"
+                             onerror="this.src='https://placehold.co/120x120/FFFFFF/333333?text=FSSAI'; this.onerror=null;">
+                        <h3 class="font-semibold text-lg mt-4 text-gray-800">FSSAI Certified</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-28 h-28 mx-auto bg-pastel-blue rounded-full flex items-center justify-center">
+                            <i data-lucide="shield-off" class="w-16 h-16 text-accent"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4 text-gray-800">BPA-Free Certified</h3>
+                    </div>
+                     <div class="text-center">
+                        <div class="w-28 h-28 mx-auto bg-pastel-blue rounded-full flex items-center justify-center">
+                            <i data-lucide="recycle" class="w-16 h-16 text-accent"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4 text-gray-800">Food-Grade Materials</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+            
+            <!-- Contact Form -->
+            <div>
+                <h3 class="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent">
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent">
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea name="message" id="message" rows="4" placeholder="Your Message" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-accent text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-all duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Contact Info & Socials -->
+            <div class="md:pl-12">
+                <h3 class="text-2xl font-semibold text-white mb-6">Connect With Us</h3>
+                <p class="mb-6">
+                    Have a question or a partnership inquiry? We'd love to hear from you.
+                </p>
+                <div class="space-y-4">
+                    <a href="tel:+910000000000" class="flex items-center gap-3 hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        <span>+91 9873518396</span>
+                    </a>
+                    <a href="mailto:hello@aqverin.com" class="flex items-center gap-3 hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span>hello@aqverin.com</span>
+                    </a>
+                </div>
+                
+                <div class="flex space-x-5 mt-8">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="WhatsApp">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i> <!-- Using message-circle as a stand-in for WhatsApp -->
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-7 h-7"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Email">
+                        <i data-lucide="mail" class="w-7 h-7"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 border-t border-gray-800 pt-8 text-center text-gray-500">
+            <p>&copy; 2025 Aqverin. All Rights Reserved. Designed with elegance.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Section Animation
+        window.addEventListener('load', () => {
+            document.getElementById('home').classList.add('hero-loaded');
+        });
+
+        // Testimonial Carousel
+        const slider = document.getElementById('testimonial-slider');
+        const slides = slider.querySelectorAll('.min-w-full');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        });
+        
+        // Auto-slide
+        setInterval(() => {
+            nextBtn.click();
+        }, 5000); // Change slide every 5 seconds
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calculate offset for fixed header
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
